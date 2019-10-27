@@ -1,5 +1,5 @@
 const express = require('express');
-const ExpressError = require('./expressError');
+const ExpressError = require('./src/expressError');
 const app = express();
 
 app.use('/', express.static('./'));
