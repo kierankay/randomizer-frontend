@@ -11,9 +11,8 @@ class RandomizeApi {
         [method === "get" ? "params" : "data"]: data
       })).data
     } catch (err) {
-      console.log("API ERROR SANS RESP", err);
-      console.error("API Error:", err.response);
-      let message = err.response.data.message;
+      console.log("API ERROR:", err);
+      let message = err.response ? err.response.data.message : err;
       throw Array.isArray(message) ? message : [message];
     }
   } 
