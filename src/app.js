@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const app = express();
 
-app.use('/build/static', express.static(__dirname + '/build/static/'))
+app.use('/build', express.static(path.join(__dirname + '/build/static')))
 
 app.get('/', async function (req, res, next) {
   try {
