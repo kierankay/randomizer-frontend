@@ -3,17 +3,11 @@ const fs = require('fs')
 
 const app = express();
 
-app.use(express.static('./static'))
+app.use(express.static('./build/static'))
 
 app.get('/', async function (req, res, next) {
   try {
-    res.sendfile('./index.html')
-    // fs.readFileSync('./static/index.html', function (err, html) {
-    //   if (err) {
-    //     throw err
-    //   }
-      
-    // })
+    res.sendfile('./build/index.html')
   }
   catch(err) {
     return next(err);
