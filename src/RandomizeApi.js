@@ -6,7 +6,7 @@ class RandomizeApi {
     try {
       return (await axios({
         method,
-        url: endpoint,
+        url: `localhost:3000${endpoint}`,
         [method === "get" ? "params" : "data"]: data
       })).data
     } catch (err) {
