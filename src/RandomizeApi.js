@@ -36,6 +36,7 @@ class RandomizeApi {
 
   static async createNewGroup(minDistance, cohort) {
     let result = await this.request('/groups/random-group', {cohort, min_paired_ago: minDistance})
+    console.log(result);
     return result
   }
 
