@@ -1,5 +1,5 @@
 import axios from 'axios';
-let BASE_URL = process.env.NODE_ENV === 'production' ? 'localhost:3000' : ''
+let BASE_URL = process.env.NODE_ENV === 'production' ? 'http://localhost:3000' : ''
 
 class RandomizeApi {
   static async request(endpoint, data = {}, method = 'get') {
@@ -18,31 +18,30 @@ class RandomizeApi {
   } 
 
   static async getUser() {
-    let result = await this.request('/users/check')
+    let result = await this.request('/users/check');
     return result
   }
 
   static async login(username, password) {
-    let result = await this.request('/users/login', {username, password}, 'post')
+    let result = await this.request('/users/login', {username, password}, 'post');
     return result
   }
   static async getCohorts() {
-    let result = await this.request('/cohorts')
+    let result = await this.request('/cohorts');
     return result
   }
   static async getLastPairs(limit, cohort) {
-    let result = await this.request('/groups', {limit, cohort})
+    let result = await this.request('/groups', {limit, cohort});
     return result
   }
 
   static async createNewGroup(minDistance, cohort) {
-    let result = await this.request('/groups/random-group', {cohort, min_paired_ago: minDistance})
-    console.log(result);
+    let result = await this.request('/groups/random-group', {cohort, min_paired_ago: minDistance});
     return result
   }
 
   static async addCohort(cohort) {
-    let result = await this.request('/cohorts', {cohort}, 'post')
+    let result = await this.request('/cohorts', {cohort}, 'post');
     return result
   }
 
@@ -52,12 +51,12 @@ class RandomizeApi {
   }
 
   static async addStudentToCohort(first_name, last_name, cohort) {
-    let result = await this.request('/students', {first_name, last_name, cohort}, 'post')
+    let result = await this.request('/students', {first_name, last_name, cohort}, 'post');
     return result
   }
 
   static async saveNewGroup(group, project, cohort) {
-    let result = await this.request('/groups', {group, project, cohort}, 'post')
+    let result = await this.request('/groups', {group, project, cohort}, 'post');
     return result
   }
 }
