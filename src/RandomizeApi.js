@@ -1,4 +1,5 @@
 import axios from 'axios';
+let BASE_URL = process.env.NODE_ENV === 'production' ? 'localhost:3000' : ''
 
 class RandomizeApi {
   static async request(endpoint, data = {}, method = 'get') {
@@ -6,10 +7,11 @@ class RandomizeApi {
     try {
       return (await axios({
         method,
-        url: `localhost:3000${endpoint}`,
+        url: `${BASE_URL}${endpoint}`,
         [method === "get" ? "params" : "data"]: data
       })).data
     } catch (err) {
+      console.log("API ERROR SANS RESP", err);
       console.error("API Error:", err.response);
       let message = err.response.data.message;
       throw Array.isArray(message) ? message : [message];
