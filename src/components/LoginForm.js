@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="text"
+          <input type="password"  
             className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={this.state.password} />
         </div>
         <button type="submit" className="btn btn-primary">Login</button>
