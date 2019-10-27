@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const app = express();
 
-app.use('*/css', express.static('/build/static/css'))
+app.use('/', express.static('./'))
 
 app.get('/', async function (req, res, next) {
   try {
