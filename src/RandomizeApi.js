@@ -1,5 +1,5 @@
 import axios from 'axios';
-let BASE_URL = process.env.NODE_ENV === 'production' ? 'http://localhost:3000' : ''
+let BASE_URL = process.env.REACT_APP_API_URL
 
 class RandomizeApi {
   static async request(endpoint, data = {}, method = 'get') {
