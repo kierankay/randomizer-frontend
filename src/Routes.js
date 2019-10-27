@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import LoginFormContainer from './containers/LoginFormContainer';
-// import GroupsList from './components/GroupsList';
 import AdminConsole from './components/AdminConsole';
 import GroupsListContainer from './containers/GroupsListContainer';
 
@@ -21,7 +20,7 @@ class Routes extends React.Component {
             <Route exact path='/admin' render={(rtProps) => <GroupsListContainer {...rtProps} />} /> : null
           }
         </Switch>
-        </React.Fragment>
+      </React.Fragment>
     )
   }
 }
