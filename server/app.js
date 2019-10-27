@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const app = express();
 
-app.use(express.static('./static'))
+app.use(express.static('./build'))
 
 app.get('/', async function (req, res, next) {
   try {
