@@ -6,7 +6,7 @@ This repo is for the frontend React App. For the frontend, see [randomizer-backe
 
 ## Demo
 
-[Demo](http://kierankay.com/)
+[Demo](http://kierankay.com:3001/)
 
 ## Features
 
