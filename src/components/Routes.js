@@ -21,6 +21,7 @@ class Routes extends React.Component {
             null
           }
           <Route exact path='/sign-up' render={(rtProps) => <SignUpFormContainer {...rtProps} />} />
+          <Route path='/' render={(rtProps) => <GreetingPage {...rtProps} />} />
         </Switch>
       </React.Fragment>
     )

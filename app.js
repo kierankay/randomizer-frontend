@@ -4,7 +4,7 @@ const app = express();
 
 app.use('/', express.static('./'));
 
-app.get('/', async function (req, res, next) {
+app.get('*', async function (req, res, next) {
   try {
     res.sendfile('./build/index.html')
   }
