@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import CohortSelector from '../components/CohortSelector';
-import { updateCurrentCohort, getCohortsFromApi, addCohortToApi } from '../actionCreators';
+import { updateCurrentCohort, getCohortsFromApi, addCohortToApi } from '../store/actionCreators';
 
 function mapStateToProps(state) {
   return {

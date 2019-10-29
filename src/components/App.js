@@ -1,22 +1,22 @@
-import React from 'react';
-import Routes from '../Routes';
+import React, { useEffect } from 'react';
+import Routes from './Routes';
 import Navbar from './Navbar';
 
-class App extends React.Component {
-  async componentDidMount() {
-    this.props.updateUserFromToken()
-  }
+const App = (props) => {
+  const { user, logUserOut, updateUserFromToken } = props
 
-  render() {
-    return (
-      <div>
-        <Navbar loggedIn={this.props.user} clearUser={this.props.logUserOut} />
-        <div className="container mt-3">
-          <Routes loggedIn={this.props.user} updateUser={this.props.updateUserFromToken} />
-        </div>
+  useEffect(() => {
+    props.updateUserFromToken()
+  }, [])
+
+  return (
+    <div>
+      <Navbar loggedIn={user} clearUser={logUserOut} />
+      <div className="container mt-3">
+        <Routes loggedIn={user} updateUser={updateUserFromToken} />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { logUserIntoApi, updateUserFromToken, logUserOut } from '../actionCreators';
+import { logUserIntoApi, updateUserFromToken, logUserOut } from '../store/actionCreators';
 import App from '../components/App';
 
 function mapStateToProps(state) {

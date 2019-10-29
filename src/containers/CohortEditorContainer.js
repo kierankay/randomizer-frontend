@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import CohortEditor from '../components/CohortEditor';
-import { addCohortToApi } from '../actionCreators';
+import { addCohortToApi } from '../store/actionCreators';
 
 function mapStateToProps(state) {
   return {

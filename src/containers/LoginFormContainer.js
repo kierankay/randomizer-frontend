@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { logUserIntoApi} from '../actionCreators';
-import LoginForm from '../components/LoginForm';
+import { logUserIntoApi } from '../store/actionCreators';
+import LoginForm from '../components/screens/LoginForm';
 
 function mapStateToProps(state) {
   return {
