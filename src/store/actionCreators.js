@@ -2,17 +2,40 @@ import {
   LOG_IN,
   LOG_OUT,
   UPDATE_USER,
+  CREATE_USER,
   UPDATE_CURRENT_COHORT,
   GOT_COHORTS,
   GOT_ONE_COHORT,
-  // GOT_ONE_STUDENT
+  GOT_CURRENT_COHORT_STUDENTS,
+  ADD_ONE_STUDENT
 } from './actionTypes';
-import RandomizeApi from './RandomizeApi';
+import RandomizeApi from '../RandomizeApi';
+
+function gotCreatedUser(user) {
+  return {
+    type: CREATE_USER,
+    payload: user
+  }
+}
 
 function gotLoggedInUser(token) {
   return {
     type: LOG_IN,
     payload: token
+  }
+}
+
+function gotCurrentCohortStudents(students) {
+  return {
+    type: GOT_CURRENT_COHORT_STUDENTS,
+    payload: students
+  }
+}
+
+function addedOneStudent(student) {
+  return {
+    type: ADD_ONE_STUDENT,
+    payload: student
   }
 }
 
@@ -50,13 +73,6 @@ function addOneCohort(cohort) {
   }
 }
 
-// function addOneStudent(student) {
-//   return {
-//     type: GOT_ONE_STUDENT,
-//     payload: student
-//   }
-// }
-
 function logUserIntoApi(username, password) {
   return async function (dispatch) {
     let resultToken = await RandomizeApi.login(username, password)
@@ -68,10 +84,37 @@ function logUserIntoApi(username, password) {
   }
 }
 
+function getStudentsFromApi(cohort) {
+  return async function (dispatch) {
+    let result = await RandomizeApi.getStudentsFromCohort(cohort);
+    dispatch(gotCurrentCohortStudents(result))
+  }
+}
+
+function addStudentToApi(firstName, lastName, cohort) {
+  return async function (dispatch) {
+    let result = await RandomizeApi.addStudentToCohort(firstName, lastName, cohort);
+    console.log(result);
+    dispatch(addedOneStudent(result))
+  }
+}
+
 function updateUserFromToken() {
   return async function (dispatch) {
     let result = await RandomizeApi.getUser();
     dispatch(gotLoggedInUserData(result))
+  }
+}
+
+function createUser(username, email ,password) {
+  return async function (dispatch) {
+    let result = await RandomizeApi.createUser(username, email, password);
+    let resultToken = await RandomizeApi.login(username, password)
+    console.log(resultToken);
+
+    localStorage.setItem('token', resultToken.token)
+    dispatch(gotCreatedUser(result));
+    dispatch(gotLoggedInUser(resultToken.token));
   }
 }
 
@@ -89,13 +132,6 @@ function addCohortToApi(cohort) {
   }
 }
 
-// function addStudentToApi(first_name, last_name, cohort) {
-//   return async function (dispatch) {
-//     let result = await RandomizeApi.addStudentToCohort(first_name, last_name, cohort);
-//     dispatch(addOneStudent(result))
-//   }
-// }
-
 function logUserOut() {
   return function (dispatch) {
     localStorage.token = '';
@@ -105,10 +141,12 @@ function logUserOut() {
 
 export {
   logUserIntoApi,
+  getStudentsFromApi,
   logUserOut,
   updateUserFromToken, 
+  createUser,
   updateCurrentCohort, 
   getCohortsFromApi, 
   addCohortToApi, 
-  // addStudentToApi
+  addStudentToApi
 }
