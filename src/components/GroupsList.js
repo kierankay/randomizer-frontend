@@ -22,7 +22,7 @@ const GroupList = props => {
     setNewGroup([...result]);
   }
 
-  async function saveNewGroup(project, group = this.state.newGroup, cohort = currentCohort) {
+  async function saveNewGroup(project, group = newGroup, cohort = currentCohort) {
     await RandomizeApi.saveNewGroup(group, project, cohort);
     getLastPairs(pairsShowing);
     setNewGroup([]);
