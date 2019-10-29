@@ -17,6 +17,11 @@ class RandomizeApi {
     }
   } 
 
+  static async createUser(username, email, password) {
+    let result = await this.request('/users/', {username, email, password}, 'post');
+    return result
+  }
+
   static async getUser() {
     let result = await this.request('/users/check');
     return result
