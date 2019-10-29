@@ -11,6 +11,7 @@ class RandomizeApi {
         [method === "get" ? "params" : "data"]: data
       })).data
     } catch (err) {
+      console.log(endpoint, data, method)
       console.log("API ERROR:", err);
       let message = err.response ? err.response.data.message : err;
       throw Array.isArray(message) ? message : [message];
@@ -23,7 +24,7 @@ class RandomizeApi {
   }
 
   static async getUser() {
-    let result = await this.request('/users/check');
+    let result = localStorage.getItem('token') ? await this.request('/users/check') : null;
     return result
   }
 
