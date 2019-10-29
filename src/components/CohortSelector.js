@@ -29,6 +29,7 @@ const CohortSelector = (props) => {
       <div className="form-group">
         <label htmlFor="cohort">Select a cohort</label>
         <select className="form-control" id="cohort" name="cohort" value={cohort} onChange={(evt) => setCohort(evt.target.value)}>
+          <option></option>
           {cohortFields}
         </select>
       </div>
