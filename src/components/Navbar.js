@@ -27,11 +27,11 @@ const Navbar = props => {
               </li>
             </React.Fragment> :
             <React.Fragment>
-              <li className="nav-item">
-                <NavLink className="btn btn-primary" to="/login">Login</NavLink>
+              <li className="nav-item mr-2">
+                <NavLink className="btn btn-outline-primary" to="/login">Login</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="btn btn-primary" to="/sign-up">Sign Up</NavLink>
+                <NavLink className="btn btn-primary btn-primary" to="/sign-up">Sign Up</NavLink>
               </li>
             </React.Fragment>
           }
