@@ -7,7 +7,7 @@ class RandomizeApi {
     try {
       return (await axios({
         method,
-        url: `${BASE_URL}${endpoint}`,
+        url: `${BASE_URL}/api${endpoint}`,
         [method === "get" ? "params" : "data"]: data
       })).data
     } catch (err) {
