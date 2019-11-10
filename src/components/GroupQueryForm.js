@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const GroupQueryForm = (props) => {
   const [limit, setLimit] = useState(5)
-  const { processSubmit, cohort } = props
+  const { processSubmit, cohort } = props;
 
   function handleSubmit(evt) {
     evt.preventDefault();

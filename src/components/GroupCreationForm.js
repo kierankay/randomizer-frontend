@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 const GroupQueryForm = props => {
-  const [minDistance, setMinDistance] = useState(1);
-  const { processSubmit } = props;
+  const [minDistance, setMinDistance] = useState(0);
+  const { processSubmit, currentCohortStudents } = props;
+  const cohortSize = currentCohortStudents.length;
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -15,10 +16,9 @@ const GroupQueryForm = props => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="minDistance">Minimum distance to last pairing</label>
-          <input type="number"
-            className="form-control" name="minDistance" id="minDistance" aria-describedby="helpId" placeholder="" value={minDistance} onChange={evt => setMinDistance(evt.target.value)}/>
-          <small id="helpId" className="form-text text-muted">Defaults to cohort size - 1 if input >= cohort size</small>
-        </div>
+          <input type="number" min="0" max={Math.ceil(cohortSize / 2)}
+            className="form-control" name="minDistance" id="minDistance" aria-describedby="helpId" placeholder="" value={minDistance} onChange={evt => setMinDistance(evt.target.value)} />
+          </div>
         <button type="submit" className="btn btn-primary">Generate Group</button>
       </form>
     </div>
