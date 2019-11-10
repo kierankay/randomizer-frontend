@@ -9,7 +9,7 @@ const GroupList = props => {
   const [groups, setGroups] = useState([]);
   const [newGroup, setNewGroup] = useState([]);
   const [pairsShowing, setPairsShowing] = useState(5);
-  const { currentCohort } = props;
+  const { currentCohort, currentCohortStudents } = props;
 
   async function getLastPairs(limit, cohort = currentCohort) {
     let result = await RandomizeApi.getLastPairs(limit, cohort)
@@ -44,8 +44,8 @@ const GroupList = props => {
       <div className="mb-5">
         <CohortSelectorContainer />
         <div className="row">
-          <GroupQueryForm processSubmit={getLastPairs} cohort={currentCohort} />
-          <GroupCreationForm processSubmit={createNewGroup} />
+          <GroupQueryForm processSubmit={getLastPairs} />
+          <GroupCreationForm processSubmit={createNewGroup} currentCohortStudents={currentCohortStudents} />
         </div>
       </div>
       {newGroup.length > 0 ?

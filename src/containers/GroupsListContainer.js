@@ -1,14 +1,15 @@
 import { connect } from "react-redux";
-import GroupList from '../components/GroupsList';
+import GroupsList from '../components/GroupsList';
 
 function mapStateToProps(state) {
   return {
     currentCohort: state.currentCohort,
-    cohorts: state.cohorts
+    currentCohortStudents: state.currentCohortStudents,
+    cohorts: state.cohorts,
   }
 }
 
 const mapDispatchToProps = {
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroupList);
+export default connect(mapStateToProps, mapDispatchToProps)(GroupsList);
