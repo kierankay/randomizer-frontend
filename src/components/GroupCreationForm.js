@@ -16,7 +16,7 @@ const GroupQueryForm = props => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="minDistance">Minimum distance to last pairing</label>
-          <input type="number" min="0" max={Math.ceil(cohortSize / 2)}
+          <input type="number" min="0" max={Math.ceil(cohortSize) - 1}
             className="form-control" name="minDistance" id="minDistance" aria-describedby="helpId" placeholder="" value={minDistance} onChange={evt => setMinDistance(evt.target.value)} />
           </div>
         <button type="submit" className="btn btn-primary">Generate Group</button>
