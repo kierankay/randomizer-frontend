@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import CohortSelector from '../components/CohortSelector';
-import { updateCurrentCohort, getCohortsFromApi, addCohortToApi } from '../store/actionCreators';
+import { updateCurrentCohort, getCohortsFromApi, addCohortToApi, getStudentsFromApi } from '../store/actionCreators';
 
 function mapStateToProps(state) {
   return {
@@ -12,7 +12,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   updateCurrentCohort,
   getCohortsFromApi,
-  addCohortToApi
+  addCohortToApi,
+  getStudentsFromApi
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CohortSelector);

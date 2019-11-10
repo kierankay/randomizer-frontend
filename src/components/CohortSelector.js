@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const CohortSelector = (props) => {
-  const { cohorts, currentCohort, getCohortsFromApi, updateCurrentCohort, loadIntoCohort } = props;
+  const { cohorts, currentCohort, getCohortsFromApi, updateCurrentCohort, loadIntoCohort, getStudentsFromApi } = props;
   const [cohort, setCohort] = useState(currentCohort || '');
 
   useEffect(() => {
@@ -14,10 +14,12 @@ const CohortSelector = (props) => {
 
   useEffect(() => {
     async function updateData() {
-      await updateCurrentCohort(cohort); // update currentCohort to redux
+      await updateCurrentCohort(cohort); // update currentCohort to store
       if (loadIntoCohort && cohort) { // add cohort to state
-        loadIntoCohort(cohort)
-      } 
+        loadIntoCohort(cohort);
+      }
+
+      await getStudentsFromApi(cohort); // add students to store
     }
     updateData();
   }, [cohort]);
