@@ -16,54 +16,69 @@ class RandomizeApi {
       let message = err.response ? err.response.data.message : err;
       throw Array.isArray(message) ? message : [message];
     }
-  } 
+  }
 
   static async createUser(username, email, password) {
-    let result = await this.request('/users/', {username, email, password}, 'post');
-    return result
+    let result = await this.request('/users/', { username, email, password }, 'post');
+    return result;
   }
 
   static async getUser() {
     let result = localStorage.getItem('token') ? await this.request('/users/check') : null;
-    return result
+    return result;
   }
 
   static async login(username, password) {
-    let result = await this.request('/users/login', {username, password}, 'post');
-    return result
+    let result = await this.request('/users/login', { username, password }, 'post');
+    return result;
   }
   static async getCohorts() {
     let result = await this.request('/cohorts');
-    return result
+    return result;
   }
   static async getLastPairs(limit, cohort) {
-    let result = await this.request('/groups', {limit, cohort});
-    return result
+    let result = await this.request('/groups', { limit, cohort });
+    return result;
   }
 
   static async createNewGroup(minDistance, cohort) {
-    let result = await this.request('/groups/random-group', {cohort, min_paired_ago: minDistance});
-    return result
+    let result = await this.request('/groups/random-group', { cohort, min_paired_ago: minDistance });
+    return result;
   }
 
   static async addCohort(cohort) {
-    let result = await this.request('/cohorts', {cohort}, 'post');
-    return result
+    let result = await this.request('/cohorts', { cohort }, 'post');
+    return result;
   }
 
   static async getStudentsFromCohort(cohort) {
     let result = await this.request(`/cohorts/${cohort}/students`);
-    return result
+    return result;
   }
 
   static async addStudentToCohort(first_name, last_name, cohort) {
-    let result = await this.request('/students', {first_name, last_name, cohort}, 'post');
-    return result
+    let result = await this.request('/students', { first_name, last_name, cohort }, 'post');
+    return result;
   }
 
   static async saveNewGroup(group, project, cohort) {
-    let result = await this.request('/groups', {group, project, cohort}, 'post');
-    return result
+    let result = await this.request('/groups', { group, project, cohort }, 'post');
+    return result;
+  }
+
+  static async requestPasswordReset(email) {
+    let result = await this.request('/users/request-password-reset', { email }, 'post');
+    return result;
+  }
+
+  static async checkPasswordToken(passwordToken) {
+    let result = await this.request('/users/check-password-token', { passwordToken }, 'post');
+    return result.tokenValid;
+  }
+
+  static async resetPassword(password, passwordToken) {
+    let result = await this.request('/users/confirm-password-reset', { password, passwordToken }, 'post');
+    return result;
   }
 }
 
