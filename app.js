@@ -2,7 +2,7 @@ const express = require('express');
 const ExpressError = require('./src/expressError');
 const app = express();
 
-app.use('/', express.static('./'));
+app.use('/', express.static(__dirname));
 
 app.get('*', async function (req, res, next) {
   try {
