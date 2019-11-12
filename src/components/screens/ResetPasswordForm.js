@@ -22,22 +22,24 @@ const ResetPasswordForm = props => {
   }
 
   return (
-    validToken ? 
-    (sent ?
+    validToken ?
+      (sent ?
+        <React.Fragment>
+          <div>Password reset successful. Proceed to the login page to log in with your new credentials.</div>
+        </React.Fragment> :
+        <React.Fragment>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="password">New Password</label>
+              <input type="password"
+                className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={password} onChange={evt => setPassword(evt.target.value)} />
+            </div>
+            <button type="submit" className="btn btn-primary">Save New Password</button>
+          </form>
+        </React.Fragment>) :
       <React.Fragment>
-        <div>Password reset successful. Proceed to the login page to log in with your new credentials.</div>
-      </React.Fragment> :
-      <React.Fragment>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="password">New Password</label>
-            <input type="password"
-              className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={password} onChange={evt => setPassword(evt.target.value)} />
-          </div>
-          <button type="submit" className="btn btn-primary">Save New Password</button>
-        </form>
-      </React.Fragment>) :
-      <React.Fragment><div>Invalid token</div></React.Fragment>
+        <div>Invalid token</div>
+      </React.Fragment>
   )
 }
 
