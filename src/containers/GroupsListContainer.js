@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import GroupsList from '../components/GroupsList';
+import GroupsList from '../components/screens/GroupsList';
 
 function mapStateToProps(state) {
   return {
