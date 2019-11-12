@@ -24,7 +24,7 @@ class Routes extends React.Component {
           }
           <Route exact path='/sign-up' render={(rtProps) => <SignUpFormContainer {...rtProps} />} />
           <Route exact path='/forgot-password' render={(rtProps) => <ForgotPasswordForm {...rtProps} />} />
-          <Route path='/reset-password/:token' render={(rtProps) => <ResetPasswordForm {...rtProps} />} />
+          <Route exact path='/reset-password/:token' render={(rtProps) => <ResetPasswordForm {...rtProps} />} />
           <Route path='/' render={(rtProps) => <GreetingPage {...rtProps} />} />
         </Switch>
       </React.Fragment>
