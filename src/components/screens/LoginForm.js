@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
   const [username, setUsername] = useState('');
@@ -24,6 +25,7 @@ const LoginForm = (props) => {
           className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={password} onChange={evt => setPassword(evt.target.value)} />
       </div>
       <button type="submit" className="btn btn-primary">Login</button>
+      <Link to="/forgot-password"><button className="btn btn-primary mx-2">Forgot Password</button></Link>
     </form>
   )
 }
