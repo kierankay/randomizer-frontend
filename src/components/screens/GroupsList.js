@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Group from './Group';
-import GroupQueryForm from './GroupQueryForm';
-import GroupCreationForm from '../components/GroupCreationForm';
-import CohortSelectorContainer from '../containers/CohortSelectorContainer';
-import RandomizeApi from '../RandomizeApi';
+import Group from '../Group';
+import GroupQueryForm from '../GroupQueryForm';
+import GroupCreationForm from '../GroupCreationForm';
+import CohortSelectorContainer from '../../containers/CohortSelectorContainer';
+import RandomizeApi from '../../RandomizeApi';
 
 const GroupList = props => {
   const [groups, setGroups] = useState([]);
