@@ -6,7 +6,7 @@ app.use('/', express.static('./'));
 
 app.get('*', async function (req, res, next) {
   try {
-    res.sendfile('./build/index.html')
+    res.sendfile('/build/index.html')
   }
   catch(err) {
     return next(err);
