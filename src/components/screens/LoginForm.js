@@ -4,12 +4,21 @@ import { Link } from 'react-router-dom';
 const LoginForm = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [authFailed, setAuthFailed] = useState(false);
   const { logUserIntoApi, history } = props;
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    await logUserIntoApi(username, password)
-    history.push('/');
+    let result = await logUserIntoApi(username, password);
+
+    // If there's a result, it's an error message, so show an error message
+    if (result) {
+      setAuthFailed(true);
+      
+      // Otherwise login and redirect to the home page
+    } else {
+      history.push('/');
+    }
   }
 
   return (
@@ -26,6 +35,7 @@ const LoginForm = (props) => {
           <input type="password"
             className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={password} onChange={evt => setPassword(evt.target.value)} />
         </div>
+        <p className="my2 text-center">{authFailed ? "Invalid credentials" : null}</p>
         <button type="submit" className="btn btn-primary btn-block my-2">Login</button>
         <div className="auth-links">
           <Link to="/forgot-password" className="text-right">I forgot my password</Link>
