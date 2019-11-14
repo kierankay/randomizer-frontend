@@ -23,7 +23,7 @@ const ResetPasswordForm = props => {
   }
 
   return (
-    <div className="auth-container col-5">
+    <div className="auth-container col-lg-5 col-md-6 col-sm-8">
       <h2 className="text-center my-4">Reset Password</h2>
       {validToken ?
         (sent ?
