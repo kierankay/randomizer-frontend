@@ -14,7 +14,7 @@ const ResetPasswordForm = props => {
       setValidToken(await RandomizeApi.checkPasswordToken(token));
     }
     fetchData()
-  }, [])
+  }, []);
 
   async function handleSubmit(evt) {
     evt.preventDefault();
