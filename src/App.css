@@ -21,6 +21,21 @@
   color: #09d3ac;
 }
 
+.auth-container {
+  margin: auto;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  padding: 40px 60px;
+}
+
+.auth-links {
+  text-align: center;
+}
+
+.auth-links > a {
+  font-size: 12px;
+}
+
 @media only screen and (max-width: 990px) {
   .navbar-nav .nav-item {
     margin-right: 0 !important;
