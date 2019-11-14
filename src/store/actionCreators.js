@@ -112,7 +112,7 @@ function updateUserFromToken() {
   }
 }
 
-function createUser(username, email ,password) {
+function createUser(username, email, password) {
   return async function (dispatch) {
     let result = await RandomizeApi.createUser(username, email, password);
     let resultToken = await RandomizeApi.login(username, password);
@@ -149,10 +149,10 @@ export {
   logUserIntoApi,
   getStudentsFromApi,
   logUserOut,
-  updateUserFromToken, 
+  updateUserFromToken,
   createUser,
-  updateCurrentCohort, 
-  getCohortsFromApi, 
-  addCohortToApi, 
+  updateCurrentCohort,
+  getCohortsFromApi,
+  addCohortToApi,
   addStudentToApi
 }

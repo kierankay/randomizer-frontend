@@ -52,7 +52,10 @@ class RandomizeApi {
   }
 
   static async getStudentsFromCohort(cohort) {
-    let result = await this.request(`/cohorts/${cohort}/students`);
+    let result = '';
+    if (cohort) {
+      result = await this.request(`/cohorts/${cohort}/students`);
+    }
     return result;
   }
 
