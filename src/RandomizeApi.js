@@ -18,8 +18,8 @@ class RandomizeApi {
     }
   }
 
-  static async createUser(username, email, password) {
-    let result = await this.request('/users/', { username, email, password }, 'post');
+  static async createUser(firstName, lastName, organization, email, password) {
+    let result = await this.request('/users/', { firstName, lastName, organization, email, password }, 'post');
     return result;
   }
 
@@ -28,8 +28,8 @@ class RandomizeApi {
     return result;
   }
 
-  static async login(username, password) {
-    let result = await this.request('/users/login', { username, password }, 'post');
+  static async login(email, password) {
+    let result = await this.request('/users/login', { email, password }, 'post');
     return result;
   }
   static async getCohorts() {
