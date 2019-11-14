@@ -115,12 +115,20 @@ function updateUserFromToken() {
 function createUser(username, email, password) {
   return async function (dispatch) {
     let result = await RandomizeApi.createUser(username, email, password);
-    let resultToken = await RandomizeApi.login(username, password);
-    console.log(resultToken);
 
-    localStorage.setItem('token', resultToken.token);
-    dispatch(gotCreatedUser(result));
-    dispatch(gotLoggedInUser(resultToken.token));
+    // If there's an error during login, it's stored in the constraint, so return it
+    if (result.constraint) {
+      return result;
+
+      // Otherwise process the login
+    } else {
+      let resultToken = await RandomizeApi.login(username, password);
+      console.log(resultToken);
+  
+      localStorage.setItem('token', resultToken.token);
+      dispatch(gotCreatedUser(result));
+      dispatch(gotLoggedInUser(resultToken.token));
+    }
   }
 }
 
