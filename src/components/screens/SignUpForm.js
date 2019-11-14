@@ -14,13 +14,12 @@ const SignUpForm = (props) => {
 
     // If there is a result, the password is invalid
     if (result) {
-      console.log(result.constraint);
       if (result.constraint === "users_username_key") {
         setErrMsg("Username already exists");
       } else if (result.constraint === "users_email_key") {
         setErrMsg("Email address already in use");
       }
-      
+
       // If there is no result, the user is logged in
     } else {
       history.push('/');
