@@ -73,9 +73,9 @@ function addOneCohort(cohort) {
   }
 }
 
-function logUserIntoApi(username, password) {
+function logUserIntoApi(email, password) {
   return async function (dispatch) {
-    let result = await RandomizeApi.login(username, password);
+    let result = await RandomizeApi.login(email, password);
 
     // If there's an error, it's in result.message so return the result
     if (result.message) {
@@ -112,17 +112,17 @@ function updateUserFromToken() {
   }
 }
 
-function createUser(username, email, password) {
+function createUser(firstName, lastName, organization, email, password) {
   return async function (dispatch) {
-    let result = await RandomizeApi.createUser(username, email, password);
-
+    let result = await RandomizeApi.createUser(firstName, lastName, organization, email, password);
+    console.log(result);
     // If there's an error during login, it's stored in the constraint, so return it
     if (result.constraint) {
       return result;
 
       // Otherwise process the login
     } else {
-      let resultToken = await RandomizeApi.login(username, password);
+      let resultToken = await RandomizeApi.login(email, password);
       console.log(resultToken);
   
       localStorage.setItem('token', resultToken.token);

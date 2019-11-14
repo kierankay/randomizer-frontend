@@ -35,7 +35,7 @@ function rootReducer(state = INITIAL_STATE, action) {
     case CREATE_USER:
       return {
         ...state,
-        user: action.payload.username
+        user: action.payload.email
       }
     case UPDATE_USER:
       return {
