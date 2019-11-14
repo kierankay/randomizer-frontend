@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Routes from './Routes';
 import Navbar from './Navbar';
+import '../App.css';
 
 const App = (props) => {
   const { user, logUserOut, updateUserFromToken } = props
