@@ -2,6 +2,8 @@
 
 Randomizer is a JavaScript / Node / Postgres app for randomizing pairs of students in a classroom. It ensures an even distribution of partners to maximize students' opportunities to learn from partners. Setting the max number of pairs ago that a pair could have happened ago enables selecting the degree of randomness optimizing between maximizing past-pair distances (resulting in predictable round-robin style pairing) and total randomness (resulting in some potential repeat pairs).
 
+The front-end is built in React / Redux / Router and includes pages for account creation, recovery, login, and cohort and group administration.
+
 This repo is for the frontend React App. For the frontend, see [randomizer-backend](https://github.com/kierankay/randomizer-backend)
 
 ## Demo
