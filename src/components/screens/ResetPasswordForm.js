@@ -28,7 +28,7 @@ const ResetPasswordForm = props => {
       {validToken ?
         (sent ?
           <React.Fragment>
-            <div>Password reset successful. <Link to="/login">>Log in</Link> with your new credentials.</div>
+            <div>Password reset successful. <Link to="/login">Log in</Link> with your new credentials.</div>
           </React.Fragment> :
           <React.Fragment>
             <form onSubmit={handleSubmit}>

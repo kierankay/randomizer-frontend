@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [authFailed, setAuthFailed] = useState(false);
   const { logUserIntoApi, history } = props;
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    if (username !== "") {
-      let result = await logUserIntoApi(username, password);
-
+    if (email !== "") {
+      let result = await logUserIntoApi(email, password);
+      console.log(result);
       // If there's a result, it's an error message, so show an error message
       if (result) {
         setAuthFailed(true);
@@ -28,9 +28,9 @@ const LoginForm = (props) => {
       <h2 className="text-center my-4">Log In</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <input type="text" required
-            className="form-control" name="username" id="username" aria-describedby="helpId" placeholder="" value={username} onChange={evt => setUsername(evt.target.value)} />
+            className="form-control" name="email" id="email" aria-describedby="helpId" placeholder="" value={email} onChange={evt => setEmail(evt.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>

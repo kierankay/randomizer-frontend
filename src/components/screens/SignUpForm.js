@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SignUpForm = (props) => {
-  const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [organization, setOrganization] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState(false);
@@ -10,21 +12,17 @@ const SignUpForm = (props) => {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await createUser(username, email, password);
-
+    let result = await createUser(firstName, lastName, organization, email, password);
+    console.log(result);
     // If there is a result, the password is invalid
     if (result) {
-      if (result.constraint === "users_username_key") {
-        setErrMsg("Username already exists");
-      } else if (result.constraint === "users_email_key") {
+      if (result.constraint === "users_email_key") {
         setErrMsg("Email address already in use");
       }
-
       // If there is no result, the user is logged in
     } else {
       history.push('/');
     }
-
   }
 
   return (
@@ -32,9 +30,19 @@ const SignUpForm = (props) => {
       <h2 className="text-center my-4">Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="firstName">First Name</label>
           <input type="text" required
-            className="form-control" name="username" id="username" aria-describedby="helpId" placeholder="" value={username} onChange={evt => setUsername(evt.target.value)} />
+            className="form-control" name="firstName" id="firstName" aria-describedby="helpId" placeholder="" value={firstName} onChange={evt => setFirstName(evt.target.value)} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name</label>
+          <input type="text" required
+            className="form-control" name="lastName" id="lastName" aria-describedby="helpId" placeholder="" value={lastName} onChange={evt => setLastName(evt.target.value)} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="organization">Organization Name</label>
+          <input type="text" required
+            className="form-control" name="organization" id="organization" aria-describedby="helpId" placeholder="" value={organization} onChange={evt => setOrganization(evt.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
