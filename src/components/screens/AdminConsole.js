@@ -9,9 +9,13 @@ const AdminConsole = (props) => {
 
   return (
     <React.Fragment>
-      <CohortSelectorContainer loadIntoCohort={getStudentsFromApi} />
-      <CohortEditorContainer />
-      <Cohort cohort={currentCohort} students={currentCohortStudents} addStudentToApi={addStudentToApi} />
+      <React.Fragment>
+        <CohortSelectorContainer loadIntoCohort={getStudentsFromApi} />
+        <CohortEditorContainer />
+      </React.Fragment>
+      {currentCohort ?
+        <Cohort cohort={currentCohort} students={currentCohortStudents} addStudentToApi={addStudentToApi} />
+        : null}
     </React.Fragment>
   )
 }
