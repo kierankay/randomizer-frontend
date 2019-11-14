@@ -43,22 +43,26 @@ const GroupList = props => {
       <h1 className="text-center mb-5">Project Student Pair Generator</h1>
       <div className="mb-5">
         <CohortSelectorContainer />
-        <div className="row">
-          <GroupQueryForm processSubmit={getLastPairs} />
-          <GroupCreationForm processSubmit={createNewGroup} currentCohortStudents={currentCohortStudents} />
-        </div>
+        {currentCohort ?
+          <React.Fragment>
+            <div className="row">
+              <GroupQueryForm processSubmit={getLastPairs} />
+              <GroupCreationForm processSubmit={createNewGroup} currentCohortStudents={currentCohortStudents} />
+            </div>
+            {newGroup.length > 0 ?
+              <div><Group
+                handleSave={saveNewGroup}
+                type="newGroup"
+                cohort={currentCohort}
+                pairs={newGroup}
+              /></div>
+              : null
+            }
+            <h2>Past Projects</h2>
+            {renderedGroups}
+          </React.Fragment>
+          : null}
       </div>
-      {newGroup.length > 0 ?
-        <div><Group
-          handleSave={saveNewGroup}
-          type="newGroup"
-          cohort={currentCohort}
-          pairs={newGroup}
-        /></div>
-        : null
-      }
-      <h2>Past Projects</h2>
-      {renderedGroups}
     </div>
   )
 }
