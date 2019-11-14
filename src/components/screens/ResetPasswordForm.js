@@ -34,7 +34,7 @@ const ResetPasswordForm = props => {
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="password">New Password</label>
-                <input type="password"
+                <input type="password" required
                   className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={password} onChange={evt => setPassword(evt.target.value)} />
               </div>
               <button type="submit" className="btn btn-primary btn-block my-2">Save New Password</button>

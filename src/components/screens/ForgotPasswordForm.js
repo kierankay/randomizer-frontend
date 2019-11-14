@@ -22,7 +22,7 @@ const ForgotPasswordForm = props => {
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="text"
+              <input type="text" required
                 className="form-control" name="email" id="email" aria-describedby="helpId" placeholder="" value={email} onChange={evt => setEmail(evt.target.value)} />
             </div>
             <button type="submit" className="btn btn-primary btn-block my-2">Request New Password</button>

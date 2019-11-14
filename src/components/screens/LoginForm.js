@@ -9,15 +9,17 @@ const LoginForm = (props) => {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await logUserIntoApi(username, password);
+    if (username !== "") {
+      let result = await logUserIntoApi(username, password);
 
-    // If there's a result, it's an error message, so show an error message
-    if (result) {
-      setAuthFailed(true);
-      
-      // Otherwise login and redirect to the home page
-    } else {
-      history.push('/');
+      // If there's a result, it's an error message, so show an error message
+      if (result) {
+        setAuthFailed(true);
+
+        // Otherwise login and redirect to the home page
+      } else {
+        history.push('/');
+      }
     }
   }
 
@@ -27,12 +29,12 @@ const LoginForm = (props) => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
-          <input type="text"
+          <input type="text" required
             className="form-control" name="username" id="username" aria-describedby="helpId" placeholder="" value={username} onChange={evt => setUsername(evt.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password"
+          <input type="password" required
             className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={password} onChange={evt => setPassword(evt.target.value)} />
         </div>
         <p className="my2 text-center">{authFailed ? "Invalid credentials" : null}</p>
