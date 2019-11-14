@@ -20,18 +20,18 @@ const Navbar = props => {
           {loggedIn ?
             <React.Fragment>
               <li className="nav-item">
-                <NavLink className="nav nav-link" to="/admin">Admin Console</NavLink>
+                <NavLink className="nav nav-link col-sm-12" to="/admin">Admin Console</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="btn btn-primary" to="/login" onClick={logOut}>Log Out</NavLink>
+                <NavLink className="btn btn-primary col-sm-12" to="/login" onClick={logOut}>Log Out</NavLink>
               </li>
             </React.Fragment> :
             <React.Fragment>
               <li className="nav-item mr-2">
-                <NavLink className="btn btn-outline-primary" to="/login">Login</NavLink>
+                <NavLink className="btn btn-outline-primary col-sm-12" to="/login">Login</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="btn btn-primary btn-primary" to="/sign-up">Sign Up</NavLink>
+                <NavLink className="btn btn-primary btn-primary col-sm-12" to="/sign-up">Sign Up</NavLink>
               </li>
             </React.Fragment>
           }

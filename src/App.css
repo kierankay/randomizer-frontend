@@ -22,14 +22,6 @@
 }
 
 @media only screen and (max-width: 990px) {
-  .navbar .navbar-brand {
-
-  }
-
-  .navbar-nav .btn {
-    display: block;
-  }
-
   .navbar-nav .nav-item {
     margin-right: 0 !important;
   }
