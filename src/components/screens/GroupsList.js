@@ -12,18 +12,18 @@ const GroupList = props => {
   const { currentCohort, currentCohortStudents } = props;
 
   async function getLastPairs(limit, cohort = currentCohort) {
-    let result = await RandomizeApi.getLastPairs(limit, cohort)
+    let result = await RandomizeApi.getLastPairs(limit, cohort.id)
     setPairsShowing(limit);
     setGroups([...result]);
   }
 
   async function createNewGroup(minDistance, cohort = currentCohort) {
-    let result = await RandomizeApi.createNewGroup(minDistance, cohort);
+    let result = await RandomizeApi.createNewGroup(minDistance, cohort.id);
     setNewGroup([...result]);
   }
 
   async function saveNewGroup(project, group = newGroup, cohort = currentCohort) {
-    await RandomizeApi.saveNewGroup(group, project, cohort);
+    await RandomizeApi.saveNewGroup(group, project, cohort.id);
     getLastPairs(pairsShowing);
     setNewGroup([]);
   }
@@ -46,8 +46,8 @@ const GroupList = props => {
         {currentCohort ?
           <React.Fragment>
             <div className="row">
-              <GroupQueryForm processSubmit={getLastPairs} />
-              <GroupCreationForm processSubmit={createNewGroup} currentCohortStudents={currentCohortStudents} />
+              <GroupQueryForm getLastPairs={getLastPairs} cohort={currentCohort} />
+              <GroupCreationForm createNewGroup={createNewGroup} currentCohortStudents={currentCohortStudents} />
             </div>
             {newGroup.length > 0 ?
               <div><Group
