@@ -37,6 +37,7 @@ class RandomizeApi {
     return result;
   }
   static async getLastPairs(limit, cohort) {
+    // Review why this is automatically using the cohort ID instead of the cohort passed in from the GroupQueryForm
     let result = await this.request('/groups', { limit, cohort });
     return result;
   }
