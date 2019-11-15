@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Student from './Student';
+import CohortSelector from './CohortSelector';
 
 // TODO - add student addition after submitting form
 // currently submits directly through API, which is not updating the students passed in as props
@@ -13,7 +14,7 @@ const Cohort = (props) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    addStudentToApi(firstName, lastName, cohort);
+    addStudentToApi(firstName, lastName, cohort.id);
     setFirstName('');
     setLastName('');
     setAddingStudent(false);
@@ -21,7 +22,7 @@ const Cohort = (props) => {
 
   return (
     <div className="card card-header mb-3" style={{ backgroundColor: "rgb(218, 248, 226)" }}>
-      <h1 style={{ display: "inline" }}>{cohort} <span style={{ fontSize: "20px" }}></span></h1>
+      <h1 style={{ display: "inline" }}>{cohort.cohort_name} <span style={{ fontSize: "20px" }}></span></h1>
       {students ? students.map(s => <Student key={s.first_name + s.last_name} firstName={s.first_name} lastName={s.last_name} />) : null}
       {addingStudent ?
         <form onSubmit={handleSubmit}>
