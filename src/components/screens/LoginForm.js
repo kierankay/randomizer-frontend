@@ -11,8 +11,9 @@ const LoginForm = (props) => {
     evt.preventDefault();
     if (email !== "") {
       let result = await logUserIntoApi(email, password);
-      console.log(result);
       // If there's a result, it's an error message, so show an error message
+      console.log(result);
+      
       if (result) {
         setAuthFailed(true);
 
