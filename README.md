@@ -12,10 +12,15 @@ This repo is for the frontend React App. For the frontend, see [randomizer-backe
 
 ## Features
 
-1. Authentication via bcrypt
-1. Cohort creation
-1. Student addition to cohorts
-1. Project group creation
+1. Session management via JWTs
+1. Authentication and JWT/email-based password recovery
+1. Multi-user organizations
+1. Organization-based data segregation
+    1. Create cohorts
+    1. Add students to cohorts
+    1. Create and save projects with student pairing
+    1. Configure pairing parameters
+    1. See project and pairing histories
 
 ## Installation
 
