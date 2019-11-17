@@ -5,7 +5,7 @@ class Student extends React.Component {
   render() {
     let { firstName, lastName } = this.props;
     return (
-      <div className="card col-5">
+      <div className="card col-6">
         <div className="card-body">
         {firstName} {lastName}
         </div>
