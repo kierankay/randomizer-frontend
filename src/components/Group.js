@@ -11,7 +11,7 @@ const Group = props => {
         <h1 style={{ display: "inline" }}>{project} <span style={{ fontSize: "20px" }}>{date}</span></h1> :
         <NewGroupSaveForm handleSave={handleSave} />
       }
-      <div className="px-3 my-3">{pairs.map((pair, idx) => <Pair key={project + date + idx} students={pair} pairIdx={idx} />)}</div>
+      <div className="px-3 my-3">{pairs.map((pair, idx) => <Pair students={pair} pairIdx={idx} />)}</div>
     </div>
   )
 }
