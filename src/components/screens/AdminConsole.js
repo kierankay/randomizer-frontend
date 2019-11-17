@@ -5,12 +5,12 @@ import Cohort from '../Cohort';
 
 
 const AdminConsole = (props) => {
-  const { currentCohortStudents, currentCohort, getStudentsFromApi, addStudentToApi } = props;
+  const { currentCohortStudents, currentCohort, addStudentToApi } = props;
 
   return (
     <React.Fragment>
       <React.Fragment>
-        <CohortSelectorContainer loadIntoCohort={getStudentsFromApi} />
+        <CohortSelectorContainer />
         <CohortEditorContainer />
       </React.Fragment>
       {currentCohort ?
