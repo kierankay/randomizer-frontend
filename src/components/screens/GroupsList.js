@@ -58,7 +58,7 @@ const GroupList = props => {
               /></div>
               : null
             }
-            <h2>Past Projects</h2>
+            <h2 className="mt-5">Past Projects</h2>
             {renderedGroups}
           </React.Fragment>
           : null}
