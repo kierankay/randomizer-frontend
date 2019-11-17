@@ -40,7 +40,7 @@ const GroupList = props => {
 
   return (
     <div>
-      <h1 className="text-center mb-5">Project Student Pair Generator</h1>
+      <h1 className="text-center mb-5">Student Pair Generator</h1>
       <div className="mb-5">
         <CohortSelectorContainer />
         {currentCohort ?
