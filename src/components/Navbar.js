@@ -25,6 +25,9 @@ const Navbar = props => {
               <li className="nav-item">
                 <NavLink className="btn btn-primary col-sm-12" to="/login" onClick={logOut}>Log Out</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="btn btn-primary col-sm-12" to="/settings">Settings</NavLink>
+              </li>
             </React.Fragment> :
             <React.Fragment>
               <li className="nav-item mr-2">
