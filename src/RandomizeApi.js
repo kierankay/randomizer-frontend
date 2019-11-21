@@ -18,6 +18,8 @@ class RandomizeApi {
     }
   }
 
+  // Auth APIs
+
   static async createUser(firstName, lastName, organization, email, password) {
     let result = await this.request('/users/', { firstName, lastName, organization, email, password }, 'post');
     return result;
@@ -30,43 +32,6 @@ class RandomizeApi {
 
   static async login(email, password) {
     let result = await this.request('/users/login', { email, password }, 'post');
-    return result;
-  }
-  static async getCohorts() {
-    let result = await this.request('/cohorts');
-    return result;
-  }
-  static async getLastPairs(limit, cohort) {
-    // Review why this is automatically using the cohort ID instead of the cohort passed in from the GroupQueryForm
-    let result = await this.request('/groups', { limit, cohort });
-    return result;
-  }
-
-  static async createNewGroup(minDistance, cohort) {
-    let result = await this.request('/groups/random-group', { cohort, min_paired_ago: minDistance });
-    return result;
-  }
-
-  static async addCohort(cohort) {
-    let result = await this.request('/cohorts', { cohort }, 'post');
-    return result;
-  }
-
-  static async getStudentsFromCohort(cohort) {
-    let result = '';
-    if (cohort) {
-      result = await this.request(`/cohorts/${cohort}/students`);
-    }
-    return result;
-  }
-
-  static async addStudentToCohort(first_name, last_name, cohort) {
-    let result = await this.request('/students', { first_name, last_name, cohort }, 'post');
-    return result;
-  }
-
-  static async saveNewGroup(group, project, cohort) {
-    let result = await this.request('/groups', { group, project, cohort }, 'post');
     return result;
   }
 
@@ -84,6 +49,52 @@ class RandomizeApi {
     let result = await this.request('/users/confirm-password-reset', { password, passwordToken }, 'post');
     return result;
   }
+
+  // Cohort APIs
+
+  static async getCohorts() {
+    let result = await this.request('/cohorts');
+    return result;
+  }
+
+  static async addCohort(cohort) {
+    let result = await this.request('/cohorts', { cohort }, 'post');
+    return result;
+  }
+
+  // Group APIs
+
+  static async getLastPairs(limit, cohort) {
+    // Review why this is automatically using the cohort ID instead of the cohort passed in from the GroupQueryForm
+    let result = await this.request(`/cohorts/${cohort}/groups`, { limit });
+    return result;
+  }
+
+  static async createNewGroup(minDistance, cohort) {
+    let result = await this.request(`/cohorts/${cohort}/groups/random`, { min_paired_ago: minDistance });
+    return result;
+  }
+
+  static async saveNewGroup(group, project, cohort) {
+    let result = await this.request(`/cohorts/${cohort}/groups`, { group, project }, 'post');
+    return result;
+  }
+
+  // Student APIs 
+
+  static async addStudentToCohort(first_name, last_name, cohort) {
+    let result = await this.request(`/cohorts/${cohort}/students`, { first_name, last_name }, 'post');
+    return result;
+  }
+
+  static async getStudentsFromCohort(cohort) {
+    let result = '';
+    if (cohort) {
+      result = await this.request(`/cohorts/${cohort}/students`);
+    }
+    return result;
+  }
+
 }
 
 export default RandomizeApi;
