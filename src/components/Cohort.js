@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Student from './Student';
-import CohortSelector from './CohortSelector';
+import uuid from 'uuid/v4';
 
 // TODO - add student addition after submitting form
 // currently submits directly through API, which is not updating the students passed in as props
@@ -24,7 +24,7 @@ const Cohort = (props) => {
     <div className="card card-header my-3" style={{ backgroundColor: "rgb(218, 248, 226)" }}>
       <div className="row d-flex flex-row p-3">
         <h1 className="d-block col-12">{cohort.cohort_name} <span style={{ fontSize: "20px" }}></span></h1>
-        {students ? students.map(s => <Student firstName={s.first_name} lastName={s.last_name}/>) : null}
+        {students ? students.map(s => <Student key={uuid()} firstName={s.first_name} lastName={s.last_name}/>) : null}
       </div>
       <div>
         {addingStudent ?
