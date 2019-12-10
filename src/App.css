@@ -36,13 +36,14 @@
   font-size: 12px;
 }
 
-.navbar-nav li.nav-item {
-  margin-right: 10px;
+.navbar-nav .nav-item {
+  margin-left: 10px;
 }
 
 @media only screen and (max-width: 990px) {
   .navbar-nav .nav-item {
     margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   .navbar-nav .btn, 
