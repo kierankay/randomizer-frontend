@@ -11,7 +11,8 @@ const ResetPasswordForm = props => {
 
   useEffect(() => {
     async function fetchData() {
-      setValidToken(await RandomizeApi.checkPasswordToken(token));
+      let validatedToken = await RandomizeApi.checkPasswordToken(token);
+      setValidToken(validatedToken);
     }
     fetchData()
   }, []);
