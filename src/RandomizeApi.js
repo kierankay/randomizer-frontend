@@ -18,7 +18,7 @@ class RandomizeApi {
     }
   }
 
-  // Auth APIs
+  // Auth Endpoints
 
   static async createUser(firstName, lastName, organization, email, password) {
     let result = await this.request('/users/', { firstName, lastName, organization, email, password }, 'post');
@@ -50,7 +50,7 @@ class RandomizeApi {
     return result;
   }
 
-  // Cohort APIs
+  // Cohort Endpoints
 
   static async getCohorts() {
     let result = await this.request('/cohorts');
@@ -62,7 +62,7 @@ class RandomizeApi {
     return result;
   }
 
-  // Group APIs
+  // Group Endpoints
 
   static async getLastPairs(limit, cohort) {
     // Review why this is automatically using the cohort ID instead of the cohort passed in from the GroupQueryForm
@@ -80,7 +80,7 @@ class RandomizeApi {
     return result;
   }
 
-  // Student APIs 
+  // Student Endpoints 
 
   static async addStudentToCohort(first_name, last_name, cohort) {
     let result = await this.request(`/cohorts/${cohort}/students`, { first_name, last_name }, 'post');
