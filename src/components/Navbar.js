@@ -22,7 +22,7 @@ const Navbar = props => {
               <li className="nav-item">
                 <NavLink className="nav nav-link col-sm-12" to="/admin">Admin Console</NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item mr-2">
                 <NavLink className="btn btn-primary col-sm-12" to="/login" onClick={logOut}>Log Out</NavLink>
               </li>
               <li className="nav-item">
