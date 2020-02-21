@@ -4,11 +4,13 @@ import Navbar from './Navbar';
 import '../App.css';
 
 const App = (props) => {
-  const { user, logUserOut, updateUserFromToken } = props
+  const {
+    user, logUserOut, updateUserFromToken
+  } = props;
 
   useEffect(() => {
-    props.updateUserFromToken()
-  }, [])
+    props.updateUserFromToken();
+  }, []);
 
   return (
     <div>

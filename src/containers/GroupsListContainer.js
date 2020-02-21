@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import GroupsList from '../components/screens/GroupsList';
 
 function mapStateToProps(state) {
@@ -6,10 +6,10 @@ function mapStateToProps(state) {
     currentCohort: state.currentCohort,
     currentCohortStudents: state.currentCohortStudents,
     cohorts: state.cohorts,
-  }
+  };
 }
 
 const mapDispatchToProps = {
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupsList);

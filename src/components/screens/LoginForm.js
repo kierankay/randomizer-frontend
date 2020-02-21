@@ -9,11 +9,11 @@ const LoginForm = (props) => {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    if (email !== "") {
-      let result = await logUserIntoApi(email, password);
+    if (email !== '') {
+      const result = await logUserIntoApi(email, password);
       // If there's a result, it's an error message, so show an error message
       console.log(result);
-      
+
       if (result) {
         setAuthFailed(true);
 
@@ -30,15 +30,33 @@ const LoginForm = (props) => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="text" required
-            className="form-control" name="email" id="email" aria-describedby="helpId" placeholder="" value={email} onChange={evt => setEmail(evt.target.value)} />
+          <input
+            type="text"
+            required
+            className="form-control"
+            name="email"
+            id="email"
+            aria-describedby="helpId"
+            placeholder=""
+            value={email}
+            onChange={(evt) => setEmail(evt.target.value)}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" required
-            className="form-control" name="password" id="password" aria-describedby="helpId" placeholder="" value={password} onChange={evt => setPassword(evt.target.value)} />
+          <input
+            type="password"
+            required
+            className="form-control"
+            name="password"
+            id="password"
+            aria-describedby="helpId"
+            placeholder=""
+            value={password}
+            onChange={(evt) => setPassword(evt.target.value)}
+          />
         </div>
-        <p className="my2 text-center">{authFailed ? "Invalid credentials" : null}</p>
+        <p className="my2 text-center">{authFailed ? 'Invalid credentials' : null}</p>
         <button type="submit" className="btn btn-primary btn-block my-2">Login</button>
         <div className="auth-links">
           <Link to="/forgot-password" className="text-right">I forgot my password</Link>
@@ -47,7 +65,7 @@ const LoginForm = (props) => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default LoginForm;

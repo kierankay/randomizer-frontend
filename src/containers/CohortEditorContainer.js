@@ -1,15 +1,15 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import CohortEditor from '../components/CohortEditor';
 import { addCohortToApi } from '../store/actionCreators';
 
 function mapStateToProps(state) {
   return {
-    cohorts: state.cohorts
-  }
+    cohorts: state.cohorts,
+  };
 }
 
 const mapDispatchToProps = {
-  addCohortToApi
+  addCohortToApi,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CohortEditor)
+export default connect(mapStateToProps, mapDispatchToProps)(CohortEditor);

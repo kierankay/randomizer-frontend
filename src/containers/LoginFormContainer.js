@@ -1,15 +1,15 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { logUserIntoApi } from '../store/actionCreators';
 import LoginForm from '../components/screens/LoginForm';
 
 function mapStateToProps(state) {
   return {
-    user: state.user
-  }
+    user: state.user,
+  };
 }
 
 const mapDispatchToProps = {
-  logUserIntoApi
-}
+  logUserIntoApi,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

@@ -1,19 +1,17 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import AdminConsole from '../components/screens/AdminConsole';
 import { getStudentsFromApi, addStudentToApi } from '../store/actionCreators';
 
 function mapStateToProps(state) {
   return {
     currentCohort: state.currentCohort,
-    currentCohortStudents: state.currentCohortStudents
-  }
+    currentCohortStudents: state.currentCohortStudents,
+  };
 }
 
 const mapDispatchToProps = {
   getStudentsFromApi,
-  addStudentToApi
-}
+  addStudentToApi,
+};
 
-export default connect(mapStateToProps,
-  mapDispatchToProps
-)(AdminConsole);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminConsole);

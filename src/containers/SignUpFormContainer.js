@@ -1,15 +1,15 @@
-import { connect } from "react-redux";
-import { createUser} from '../store/actionCreators';
+import { connect } from 'react-redux';
+import { createUser } from '../store/actionCreators';
 import SignUpForm from '../components/screens/SignUpForm';
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {
-    
-  }
+
+  };
 }
 
 const mapDispatchToProps = {
-  createUser
-}
+  createUser,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
